@@ -1,0 +1,100 @@
+:root {
+  --svelte-orange: #ff3e02;
+  --canvas-overlay: #00000088;
+  --canvas-overlay-hover: #00000055;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#svelte {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: #444444;
+  background-color: #fafbfc;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  font-family: "Overpass", sans-serif;
+  font-size: 18px;
+}
+
+.editor-wrapper {
+  position: absolute;
+  top: 3.5rem;
+  right: 0.5rem;
+  transform-origin: top;
+}
+
+.form-wrapper {
+  background-color: var(--canvas-overlay);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 2px;
+  width: 16rem;
+  max-height: calc(50vh - 5rem);
+  overflow: hidden;
+  color: #fafbfc;
+}
+
+.form-wrapper .form-title {
+  margin: 0.75rem auto 0.5rem 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.form-wrapper .warning {
+  font-size: 0.75rem;
+  font-style: italic;
+  opacity: 0.8;
+  padding: 0 0.5rem;
+  margin: 0;
+}
+.form-wrapper .prop-section-list {
+  font-size: 0.75rem;
+  width: 100%;
+  overflow: auto;
+}
+
+.form-wrapper .block {
+  display: block;
+}
+
+.form-wrapper .prop-section-list > * {
+  margin: 1rem 0;
+}
+
+.form-wrapper .acc-wrapper,
+.form-wrapper .input-wrapper {
+  margin: 0.5rem;
+  font-size: 0.75rem;
+  background: #00000055;
+}
+.form-wrapper .input-wrapper {
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-wrapper input[type="number"] {
+  max-width: 33%;
+  border: none;
+  padding: 0.25rem 0.5rem;
+}
+
+.form-wrapper label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
