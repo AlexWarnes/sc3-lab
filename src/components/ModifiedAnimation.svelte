@@ -11,6 +11,9 @@
 	const { root, parent } = setup();
 
 	const mixer = new THREE.AnimationMixer(parent);
+
+	// TODO: Improve clip crossfading and allow custom params
+	// DOCS: https://threejs.org/docs/#api/en/animation/AnimationMixer
 	$: {
 		allClips.forEach(modelClip => {
 			let action = mixer.clipAction(modelClip)

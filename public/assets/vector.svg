@@ -1,0 +1,23 @@
+<!-- <svg data-svg-carbon-icon="ZAxis32" xmlns="http://www.w3.org/2000/svg" fill="#ff3e00" viewBox="0 0 32 32">
+<path d="M26 22v3.586l-9-9V5.828l2.586 2.586L21 7l-5-5-5 5 1.414 1.414L15 5.828v10.758l-9 9V22H4v7h7v-2H7.414L16 18.414 24.586 27H21v2h7v-7h-2z"/>
+</svg> -->
+
+
+<svg
+	data-svg-carbon-icon="Cube32"
+	xmlns="http://www.w3.org/2000/svg"
+	fill="url(#gradient)"
+	viewBox="0 0 32 32"
+	>
+      <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+				<stop offset="0%" stop-color="#444444" />
+				<stop offset="50%" stop-color="#444444" />
+				<stop offset="50%" stop-color="#ff3e00" />
+				<stop offset="100%" stop-color="#ff3e00" />
+			</linearGradient>
+
+  
+  <path
+		d="m28.5039 8.1362-12-7a1 1 0 0 0-1.0078 0l-12 7A1 1 0 0 0 3 9v14a1 1 0 0 0 .4961.8638l12 7a1 1 0 0 0 1.0078 0l12-7A1 1 0 0 0 29 23V9a1 1 0 0 0-.4961-.8638ZM16 3.1577 26.0156 9 16 14.8423 5.9844 9ZM5 10.7412l10 5.833v11.6846l-10-5.833Zm12 17.5176V16.5742l10-5.833v11.6846Z"
+	/></svg
+>

@@ -99,7 +99,7 @@
 	}
 	.scene-graph-wrapper {
 		position: absolute;
-		top: 3.75rem;
+		top: 0.5rem;
 		left: 0.5rem;
 		pointer-events: none;
 	}

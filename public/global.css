@@ -1,5 +1,6 @@
 :root {
-  --svelte-orange: #ff3e02;
+  --svelte-orange: #ff3e00;
+  --threejs-black: #444444;
   --canvas-overlay: #00000088;
   --canvas-overlay-hover: #00000055;
 }
@@ -20,15 +21,13 @@ body,
 }
 
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 16px;
   font-family: "Overpass", sans-serif;
   font-size: 18px;
 }
 
 .editor-wrapper {
   position: absolute;
-  top: 3.5rem;
+  top: 0.5rem;
   right: 0.5rem;
   transform-origin: top;
 }
@@ -41,7 +40,7 @@ body {
   align-items: center;
   border-radius: 2px;
   width: 16rem;
-  max-height: calc(50vh - 5rem);
+  max-height: calc(50vh - 2rem);
   overflow: hidden;
   color: #fafbfc;
 }
@@ -65,10 +64,6 @@ body {
   overflow: auto;
 }
 
-.form-wrapper .block {
-  display: block;
-}
-
 .form-wrapper .prop-section-list > * {
   margin: 1rem 0;
 }
@@ -84,6 +79,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.form-wrapper .block {
+  display: block;
 }
 
 .form-wrapper input[type="number"] {

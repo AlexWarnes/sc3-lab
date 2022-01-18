@@ -157,10 +157,10 @@
       <pre>
 {`
 <${scriptString}>
-	import * as THREE from "three";
-	import * as SC from "svelte-cubed";
-	${
-    gltfObjects
+import * as THREE from "three";
+import * as SC from "svelte-cubed";
+${
+    gltfObjects.length
       ? 'import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"'
       : ""
   }
