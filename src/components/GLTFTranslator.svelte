@@ -2,17 +2,14 @@
   import * as THREE from "three";
   import * as SC from "svelte-cubed";
 
-  import { onDestroy } from "svelte";
   import type { LabGLTF } from "../models/models";
-  import { GLTFModelLibrary, selectedObjects } from "../data/store";
+  import { selectedObjects } from "../data/store";
   import ObjectPropEditor from "./ObjectPropEditor.svelte";
   import { fly, scale } from "svelte/transition";
-  import { loadGLTF, setGLTFStatus, stopTrackingGLTF } from "../data/GLTF";
   import ModifiedAnimation from "./ModifiedAnimation.svelte";
 
   export let idx: number;
   export let gltf: LabGLTF;
-  $: console.log("gltf update", gltf);
   $: selected =
     $selectedObjects.length === 1 && $selectedObjects.includes(gltf.id);
   let time = 0;

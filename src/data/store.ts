@@ -97,7 +97,6 @@ export const showBackgroundLoading = derived([GLTFStatusTracker], ([$GLTFStatusT
 // TODO: Saving this if I can ever figure out how to clone them
 export const addGLTFModelToLibrary = (sourceKey, data) => {
 	GLTFModelLibrary.update(current => {
-		console.log("updating model lib:", {current, sourceKey, data})
 		if (!current.hasOwnProperty(sourceKey)) {
 			current[sourceKey] = data;
 			return current;

@@ -66,9 +66,9 @@ export const generateNewMesh = (type: GeometryType): LabMesh => {
 		geometry: mapToGeometry(type),
 		material: mapToMaterial('STANDARD'),
 		position: [
-			-10 + Math.round(Math.random() * 20),
-			-10 + Math.round(Math.random() * 20),
-			-10 + Math.round(Math.random() * 20)
+			-5 + Math.round(Math.random() * 10),
+			-5 + Math.round(Math.random() * 10),
+			-10 + Math.round(Math.random() * 10)
 		],
 		// position: [0, 0, 0],
 		scale: [1, 1, 1],

@@ -44,7 +44,6 @@ export const stopTrackingGLTF = (targetID) => {
 // };
 
 export const setGLTFSource = (id, source: string): void => {
-  console.log("setGLTFSource", { id, source });
   sceneObjects.update((current) => {
     let gltf = current.find((obj) => obj.id === id);
     if (gltf) {
@@ -56,10 +55,9 @@ export const setGLTFSource = (id, source: string): void => {
   });
 };
 
-export const loadGLTF = (gltf: LabGLTF): Promise<any> => {
+export function loadGLTF(gltf: LabGLTF): Promise<any> {
   if (gltf.source) {
     const loader = new GLTFLoader();
-		console.log("new loader!", gltf.source)
     return loader.loadAsync(gltf.source);
   } else {
     return new Promise((_, rej) => rej({ status: "EMPTY", data: null }));

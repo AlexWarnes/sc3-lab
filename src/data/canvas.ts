@@ -5,7 +5,7 @@ export const generateNewCanvas = (): LabCanvas => {
 	return {
 		id: 'CANVAS',
 		type: 'CANVAS',
-		background: new THREE.Color(0x676779),
+		background: new THREE.Color(0x36363F),
 		fog: null,
 		fogColor: null,
 		fogDensity: null,

@@ -39,7 +39,6 @@
   $: if (gltf && gltf.model) {
     animationList = gltf.model.animations || [];
   }
-  $: console.log("sceneObjects:", $sceneObjects);
 
   const GLTFOptions: GLTFOption[] = [
     { name: "Flamingo", path: "Flamingo.glb" },
