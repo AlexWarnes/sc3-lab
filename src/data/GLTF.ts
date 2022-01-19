@@ -1,4 +1,3 @@
-import * as THREE from "three";
 import type { GLTFStatus, LabGLTF } from "../models/models";
 import { GLTFStatusTracker, sceneObjects } from "./store";
 import { uuid, zTimestamp } from "./utils";
@@ -55,14 +54,20 @@ export const setGLTFSource = (id, source: string): void => {
   });
 };
 
-export function loadGLTF(gltf: LabGLTF): Promise<any> {
-  if (gltf.source) {
+export function loadGLTF(gltf: LabGLTF, callback): void {
     const loader = new GLTFLoader();
-    return loader.loadAsync(gltf.source);
-  } else {
-    return new Promise((_, rej) => rej({ status: "EMPTY", data: null }));
-  }
-};
+    loader.load(gltf.source, callback)
+
+}
+// export function loadGLTF(gltf: LabGLTF): Promise<any> {
+//   if (gltf.source) {
+//     const loader = new GLTFLoader();
+
+//     return loader.loadAsync(gltf.source);
+//   } else {
+//     return new Promise((_, rej) => rej({ status: "EMPTY", data: null }));
+//   }
+// }
 
 export const addModelToGLTFSceneObject = (objID, data) => {
   sceneObjects.update((current) => {
@@ -83,7 +88,3 @@ export const addModelToGLTFSceneObject = (objID, data) => {
   });
 };
 
-export const reinstantiateGLTF = (model) => {
-  const loader = new GLTFLoader();
-  return loader.load(model);
-};

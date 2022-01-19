@@ -35,10 +35,7 @@
     name: string;
     path: string;
   }
-  let animationList = [];
-  $: if (gltf && gltf.model) {
-    animationList = gltf.model.animations || [];
-  }
+  $: animationList = gltf && gltf.model && gltf.model.animations || [];
 
   const GLTFOptions: GLTFOption[] = [
     { name: "Flamingo", path: "Flamingo.glb" },
@@ -63,7 +60,7 @@
     { name: "Soldier", path: "Soldier.glb" },
   ];
   let selectedExampleModel = "";
-  $: if (gltf.source) {
+  $: {
     let option = GLTFOptions.find((opt) => gltf.source.includes(opt.path));
     selectedExampleModel = option ? option.path : "";
   }
@@ -91,6 +88,7 @@
      * */
     if (!tempSource) {
       setGLTFSource(gltf.id, tempSource);
+      setGLTFStatus(gltf.id, "EMPTY");
       addModelToGLTFSceneObject(gltf.id, null);
       return;
     }
@@ -111,17 +109,13 @@
 
   function loadModel() {
     setGLTFStatus(gltf.id, "LOADING");
+    loadGLTF(gltf, handleGLTF);
+  }
 
-    loadGLTF(gltf)
-      .then((data) => {
-        setGLTFStatus(gltf.id, "SUCCESS");
-        addGLTFModelToLibrary(tempSource, data);
-        addModelToGLTFSceneObject(gltf.id, data);
-      })
-      .catch((err) => {
-        setGLTFStatus(gltf.id, "ERROR");
-        addModelToGLTFSceneObject(gltf.id, null);
-      });
+  function handleGLTF(data) {
+    setGLTFStatus(gltf.id, "SUCCESS");
+    addGLTFModelToLibrary(tempSource, data);
+    addModelToGLTFSceneObject(gltf.id, data);
   }
 </script>
 
@@ -139,7 +133,7 @@
       <label class="block"
         >Source URL
         <input
-          class="source-field"
+          class="wide"
           value={gltf.source || ""}
           on:input={handleSourceInput}
           type="text"
@@ -176,9 +170,10 @@
     </div>
     <div class="input-wrapper block">
       <!-- oninput handler to rerender on when text inputs change -->
-      <label
+      <label class="block"
         >Name
         <input
+          class="wide"
           type="text"
           bind:value={gltf.name}
           on:input={() => ($sceneObjects = $sceneObjects)}
@@ -258,8 +253,7 @@
 </form>
 
 <style>
-
-  input.source-field {
+  input.wide {
     width: 100%;
   }
   .load-btn {
@@ -293,9 +287,6 @@
     margin: 0.5rem 0 0 0;
   }
 
-  .animation-inputs {
-    /* padding: .5rem .75rem .5rem 0; */
-  }
   .animation-inputs > label {
     width: 100%;
     padding: 0.5rem 0.75rem;

@@ -1,4 +1,4 @@
-import type { Position, Scale } from 'svelte-cubed/types/common';
+import type { Position } from 'svelte-cubed/types/common';
 import type { LabGLTF, LabLight, LabMesh } from '../models/models';
 import { setGLTFStatus } from './GLTF';
 import { addNewSceneObject } from './store';
@@ -16,7 +16,7 @@ export const copyObject = (obj) => {
 		// return copyGLTF
 		const newGLTF = copyGLTF(obj, offsetPosition)
 		addNewSceneObject(newGLTF, true)
-		setTimeout(() => setGLTFStatus(newGLTF.id, "EMPTY"));
+		setGLTFStatus(newGLTF.id, "EMPTY");
 	}
 };
 
@@ -55,6 +55,5 @@ const copyGLTF = (gltf: LabGLTF, offsetPosition): LabGLTF => {
 		rotation,
 		name: `${gltf.name} COPY ${zTimestamp()}`,
 		model: null,
-		animations: [],
 	}
 }

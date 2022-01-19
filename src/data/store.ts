@@ -13,7 +13,6 @@ import { generateNewCanvas } from './canvas';
 import { generateNewLight } from './light';
 import { generateNewMesh, mapToGeometry, mapToMaterial, txfrMaterialProperties } from './mesh';
 import { generateNewOrbitCtl } from './orbit';
-import { get_store_value } from 'svelte/internal';
 
 const initialHelperSettings: HelperSettings = {
 	showAxes: true,
@@ -97,7 +96,7 @@ export const showBackgroundLoading = derived([GLTFStatusTracker], ([$GLTFStatusT
 // TODO: Saving this if I can ever figure out how to clone them
 export const addGLTFModelToLibrary = (sourceKey, data) => {
 	GLTFModelLibrary.update(current => {
-		if (!current.hasOwnProperty(sourceKey)) {
+		if (current && !current.hasOwnProperty(sourceKey)) {
 			current[sourceKey] = data;
 			return current;
 		}
