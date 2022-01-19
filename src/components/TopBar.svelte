@@ -10,7 +10,7 @@
   </a>
   <!-- <a href="/#/lab">LAB</a> -->
   <span class="flex-spacer" />
-  <a href="/#/">
+  <a href="https://github.com/AlexWarnes/sc3-lab">
     <img
       class="sc3lab-icon"
       src="/assets/githubLogo.svg"
