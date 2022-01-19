@@ -38,7 +38,7 @@
       height="48px"
     />
 
-    <LinkBtn href="https://svelte.dev/" background="var(--threejs-black)"
+    <LinkBtn href="https://svelte-cubed.vercel.app/" background="var(--threejs-black)"
       ><span>Learn svelte-cubed</span>
       <ChevronRight height="16" />
     </LinkBtn>
