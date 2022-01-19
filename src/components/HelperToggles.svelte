@@ -5,10 +5,6 @@
 
 <!-- HELPERS -->
 <div class="helpers-box">
-	{#if $helperSettings.showControls}
-		<p>Scene Settings:</p>
-	{/if}
-
 	<div class="input-box">
 		{#if $helperSettings.showControls}
 			<label

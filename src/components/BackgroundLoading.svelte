@@ -22,7 +22,7 @@
 	}
 	.background-loading-box {
 		position: absolute;
-		bottom: 0rem;
+		top: 0rem;
 		left: calc(100% + 1rem);
 		display: flex;
 		justify-content: space-between;
