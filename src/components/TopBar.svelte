@@ -26,7 +26,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    padding: 1rem;
+    padding: 1rem 1.75rem;
     background: #fafbfc;
     z-index: 1;
     display: flex;

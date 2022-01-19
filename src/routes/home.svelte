@@ -12,7 +12,7 @@
   <div class="description">
     <p>
       <span class="action-word">Experiment</span> with 3D scenes using svelte-cubed
-      and three.js.
+      and three.js
     </p>
     <p>
       <span class="action-word">Learn</span> basic interactions between light, geometry,
@@ -26,14 +26,14 @@
     <ChevronRight height="16" />
   </LinkBtn>
   <HeaderScene />
-  <HeaderLogoBox />
 </header>
+<HeaderLogoBox />
 
 <style>
   header {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 85vh;
     padding: calc(1rem + 60px) 60px;
     display: flex;
     flex-direction: column;
