@@ -126,7 +126,7 @@
 </script>
 
 <form class="form-wrapper">
-  <h3 class="form-title">GLTF PROPERTIES (BETA)</h3>
+  <h3 class="form-title">glTF PROPERTIES (BETA)</h3>
   <ObjectOptions obj={gltf} />
 
   <p class="warning">
@@ -158,7 +158,7 @@
 
     <div class="input-wrapper block">
       <label class="block"
-        >GLTF Example Models
+        >glTF Example Models
         <select value={selectedExampleModel} on:change={handleModelSelect}>
           <option value={""} />
 

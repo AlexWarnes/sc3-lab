@@ -95,7 +95,7 @@
 
 	<button class="icon-btn" on:click={handleNewGLTFClick}>
 		<Model />
-		<span class="btn-label">GLTF</span>
+		<span class="btn-label">glTF</span>
 	</button>
 </div>
 
