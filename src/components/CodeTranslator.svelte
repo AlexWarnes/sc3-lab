@@ -15,19 +15,39 @@
   import { onMount } from "svelte";
   import Copy from "../icons/Copy.svelte";
 
-  $: gltfObjects = $sceneObjects.filter((obj) => obj.type === "GLTF");
+  $: gltfObjects = $sceneObjects.filter(
+    (obj) => obj.type === "GLTF" && !!obj.source
+  );
 
   const stringifyGLTFScript = () => {
     if (!gltfObjects.length) {
       return "";
     } else {
       return `
-// *******************************
-// WARNING: GLTF Code Generation is not yet supported
-// For examples, reference Birds.svelte in REPL: https://svelte.dev/repl/384e1c579f8a4fa5b04f3df0a2017ad1?version=3.46.1
-// *******************************
-			`;
+
+      let gltfModels = null;
+
+      function loadAllGLTF() {
+        const loader = new GLTFLoader();
+        Promise.all([${
+          gltfObjects.map((obj) => `loader.loadAsync("${obj.source}")`)}
+        ]).then(modelList => gltfModels = modelList)
+      }
+
+      onMount(() => {
+        loadAllGLTF();
+      })
+      `;
     }
+  };
+
+  const stringifyGLTF = (gltf, idx) => {
+    return `  <SC.Primitive
+    object={gltfModels[${idx}].scene}
+    position={[${gltf.position}]}
+    rotation={[${gltf.rotation}]}
+    scale={[${gltf.scale}]}
+  />`;
   };
 
   const stringifyCamera = (camera: LabCamera) => {
@@ -160,10 +180,10 @@
 import * as THREE from "three";
 import * as SC from "svelte-cubed";
 ${
-    gltfObjects.length
-      ? 'import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js"'
-      : ""
-  }
+  gltfObjects.length
+    ? 'import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";\nimport { onMount } from "svelte";'
+    : ""
+}
 	${stringifyGLTFScript()}
 </${scriptString}>
 
@@ -201,6 +221,17 @@ ${
           <pre>{stringifyLight(obj)}</pre>
         {/if}
       {/each}
+      <pre>
+        {`{#if gltfModels`}}
+      </pre>
+      {#each gltfObjects as gltf, idx}
+        <pre>
+          {stringifyGLTF(gltf, idx)}
+        </pre>
+      {/each}
+      <pre>
+        {`{/if`}}
+      </pre>
       <pre>{`</SC.Canvas>`}</pre>
     </div>
     <button
