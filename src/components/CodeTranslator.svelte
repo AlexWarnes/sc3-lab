@@ -29,8 +29,9 @@
 
       function loadAllGLTF() {
         const loader = new GLTFLoader();
-        Promise.all([${
-          gltfObjects.map((obj) => `loader.loadAsync("${obj.source}")`)}
+        Promise.all([${gltfObjects.map(
+          (obj) => `loader.loadAsync("${obj.source}")`
+        )}
         ]).then(modelList => gltfModels = modelList)
       }
 
@@ -221,17 +222,17 @@ ${
           <pre>{stringifyLight(obj)}</pre>
         {/if}
       {/each}
-      <pre>
-        {`{#if gltfModels`}}
-      </pre>
-      {#each gltfObjects as gltf, idx}
+
+      <!-- GLTF -->
+      {#if gltfObjects.length}
         <pre>
-          {stringifyGLTF(gltf, idx)}
+          {`{#if gltfModels}`}
+          {#each gltfObjects as gltf, idx}
+            {stringifyGLTF(gltf, idx)}
+          {/each}
+          {`{/if}`}
         </pre>
-      {/each}
-      <pre>
-        {`{/if`}}
-      </pre>
+      {/if}
       <pre>{`</SC.Canvas>`}</pre>
     </div>
     <button
