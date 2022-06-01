@@ -3,12 +3,13 @@
   import HeaderLogoBox from "../components/HeaderLogoBox.svelte";
   import LinkBtn from "../components/LinkBtn.svelte";
   import ChevronRight from "../icons/ChevronRight.svelte";
-  import TopBar from "../components/TopBar.svelte";
+  // import TopBar from "../components/TopBar.svelte";
 </script>
 
-<TopBar />
+<!-- <TopBar /> -->
 <header>
   <h1>SC3<span class="lab">LAB</span></h1>
+  <span class="spacer"></span>
   <div class="description">
     <p>
       <span class="action-word">Experiment</span> with 3D scenes using svelte-cubed
@@ -33,12 +34,13 @@
   header {
     position: relative;
     width: 100%;
-    min-height: 85vh;
-    padding: calc(1rem + 60px) 60px;
+    min-height: 80vh;
+    padding: calc(2% + 60px) 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: #fafbfc;
     /* background-color: #676779;
 		background: radial-gradient(
 				34.14% 72.25% at 47.58% 31.75%,
@@ -60,6 +62,10 @@
     line-height: 1.5rem;
     font-size: 1rem;
   }
+
+  header .spacer {
+    flex-grow: 1;
+  }
   .action-word {
     font-weight: 600;
     text-transform: uppercase;
@@ -72,7 +78,7 @@
     align-items: center;
     flex-wrap: wrap;
     margin-bottom: 0;
-    color: var(--threejs-black);
+    /* color: var(--threejs-black); */
   }
 
   h1 .lab {

@@ -1,5 +1,5 @@
 <nav>
-  <a href="/#/" class="logo-link">
+  <a href="/#/" class="logo-link" title="Home" aria-label="Home">
     <img
       class="sc3lab-icon"
       src="/assets/view3d.svg"
@@ -10,11 +10,19 @@
   </a>
   <!-- <a href="/#/lab">LAB</a> -->
   <span class="flex-spacer" />
-  <a href="https://github.com/AlexWarnes/sc3-lab">
+  <a href="https://github.com/AlexWarnes/sc3-lab" title="GitHub" aria-label="GitHub">
     <img
-      class="sc3lab-icon"
+      class="link-icon"
       src="/assets/githubLogo.svg"
       alt="github logo"
+      width="24"
+    />
+  </a>
+  <a href="https://twitter.com/a_warnes" title="Twitter" aria-label="Twitter">
+    <img
+      class="link-icon"
+      src="/assets/twitterLogo.svg"
+      alt="twitter logo"
       width="24"
     />
   </a>
@@ -51,6 +59,10 @@
 	.logo-link img {
 		margin: 0 1rem 0 0;
 	}
+
+  .link-icon {
+    margin: 0 1rem;
+  }
 
   .flex-spacer {
     flex-grow: 1;
